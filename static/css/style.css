@@ -10,16 +10,28 @@
 .navbar .nav-link, .navbar .navbar-brand{
   color: #fff;
 }
+.navbar-nav{
+  text-align: center;
+}
 
 /* Main-body Section */
 body{
   background-color: rgb(246, 246, 246);
 }
 
+/* Post Section */
+.single-post{
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
 /* Side-bar Section */
 .side-bar {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .navbar-toggler:focus{
