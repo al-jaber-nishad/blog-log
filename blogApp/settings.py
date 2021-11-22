@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'blog',
     'registration',
+
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
