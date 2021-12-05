@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+/* Log In page */
+.login-container{
+  height: 100vh;
+  width: 100%;
+}
+.login-form{
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 10px 1px 15px rgb(231, 231, 231);
+  background-color: #fff;
+}
 
 /* Navbar Section */
 .navbar {
