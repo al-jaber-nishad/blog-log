@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3 class="name">{{ user.username }}</h3>
-<img src="{{ user.profile.image.url }}" alt="" width="10%">
+<img class="d-inline rounded-circle mb-3" src="{{ user.profile.image.url }}" alt="" width="10%">
+<h3 class="name d-inline mt-auto">{{ user.username }}</h3>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ u_form.as_p }}
+  {{ p_form.as_p }}
+
+  <input type="submit" value="Submit" class="btn btn-primary btn-block">
+</form>
 {% endblock content %}

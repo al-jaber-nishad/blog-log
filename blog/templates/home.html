@@ -3,7 +3,8 @@
   <div class="row">
     <div class="col-md-8">
       {% for item in posts %}
-      <div class="single-post">
+      <div class="single-post border">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image }}" alt="">
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
       </div>
