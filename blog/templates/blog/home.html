@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="home-content">
+  <div class="row">
+    <div class="col-md-8">
+      {% for post in posts %}
+        <article class="media content-seciton single-post">
+          <img class="rounded-circle article-image" src="{{ post.author.profile.image.url }}" alt="">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a href="" class="mr-2">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+              <small>{{ post.date_posted }}</small>
+            </div>
+            <h2><a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="col-md-4">
+      <div class="side-bar">
+        <h4>Our Sidebar</h4>
+        <p>You can put any information you'd like.</p>
+        <ul>
+          <li>Latest Posts</li>
+          <li>Announcments</li>
+          <li>Calendar</li>
+          <li>etc</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

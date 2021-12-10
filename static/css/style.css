@@ -30,12 +30,16 @@ body{
   background-color: rgb(246, 246, 246);
 }
 
-/* Post Section */
+/* Home Page Post Section */
 .single-post{
   background-color: #fff;
   padding: 20px;
   margin-top: 15px;
   border-radius: 10px;
+}
+.article-image{
+  height: 50px;
+  margin-right: 10px;
 }
 
 /* Side-bar Section */

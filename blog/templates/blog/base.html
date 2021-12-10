@@ -21,7 +21,7 @@
 <body>
   <nav class="navbar navbar-expand-lg custom-nav">
     <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
@@ -34,15 +34,12 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Disabled</a>
-          </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'post-create' %}" class="nav-link">New Post</a>
+          </li>
           <li class="nav-item">
             <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
           </li>
@@ -54,7 +51,7 @@
             <a href="{% url 'login' %}" class="nav-link">Log In</a>
           </li>
           <li class="nav-item">
-            <a href="{% url "register" %}" class="nav-link">Register</a>
+            <a href="{% url 'register' %}" class="nav-link">Register</a>
           </li>
           {% endif %}
         </ul>

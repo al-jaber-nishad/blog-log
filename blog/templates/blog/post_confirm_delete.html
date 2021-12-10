@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="home-content">
+  <div class="row">
+    <div class="col-md-8 single-post">
+      
+      
+      <form method="post">
+        {% csrf_token %}
+        
+        <h2 class="border-bottom">Delete Post</h2>
+        <h3>Are you sure, you want to delete <h2>"{{ object.title }}"</h2></h3>
+
+        <input class="btn btn-outline-danger" type="submit" value="Delete">
+        <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+      </form>
+
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="side-bar">
+        <h4>Our Sidebar</h4>
+        <p>You can put any information you'd like.</p>
+        <ul>
+          <li>Latest Posts</li>
+          <li>Announcments</li>
+          <li>Calendar</li>
+          <li>etc</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
