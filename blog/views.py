@@ -1,50 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 # from django.contrib.decorators import decorators
 import datetime
 
 
+def home(request):
+  
+  context = {
+    'posts': Post.objects.all()
+  }
+  return render(request, 'blog/home.html', context)
 
-# Create your views here.
 
-posts = [
-  {
-    'id': 1,
-    'title': "First Post!",
-    'author': 'nishad_updated',
-    'content': "This is the first of this application.",
-    'date_posted': datetime.time(10, 33, 45),
-  },
-  {
-    'id': 2,
-    'title': "Second Post!",
-    'author': 'Nishad',
-    'content': "This is the second of this application.",
-    'date_posted': datetime.time(9, 33, 45),
-  },
-  {
-    'id': 3,
-    'title': "Third Post!",
-    'author': 'Nishad',
-    'content': "This is the second of this application.",
-    'date_posted': datetime.time(8, 33, 45),
-  },
-  {
-    'id': 4,
-    'title': "Fourth Post!",
-    'author': 'Nishad',
-    'content': "This is the second of this application.",
-    'date_posted': datetime.time(5, 33, 45),
-  },
-]
-
+  
 class PostListView(ListView):
   model = Post
   template_name = 'blog/home.html'
-  context_name_object = 'posts'
-  ordering = ['-date-posted']
+  context_object_name = 'posts'
+  ordering = ['-date_posted']
+  paginate_by = 5
+
+  def get_queryset(self):
+    user = get_object_or_404(User, username=self.kwargs.get('username'))
+    return Post.objects.filter(author=user).order_by('-date_posted')
+
 
 class PostDetailView(DetailView):
   model = Post
@@ -81,10 +63,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
       return True
     return False
 
-
-def home(request):
-  
-  context = {
-    'posts': Post.objects.all()
-  }
-  return render(request, 'blog/home.html', context)
