@@ -24,6 +24,11 @@
 .navbar-nav{
   text-align: center;
 }
+.navbar-brand .brand-logo{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 5rem;
+
+}
 
 /* Main-body Section */
 body{
