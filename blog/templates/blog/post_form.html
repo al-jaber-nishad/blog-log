@@ -1,28 +1,50 @@
 {% extends 'blog/base.html' %} {% block content %}
-<div class="home-content">
-  <div class="row">
-    <div class="col-md-8">
-      
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+<section class="postForm-page shadow-lg">
 
-        <input type="submit" value="Post">
-      </form>
+  <div class="post-form">
 
+    <div class="post-form-title mb-3">
+      Post Form
     </div>
-    <div class="col-md-4">
-      <div class="side-bar">
-        <h4>Our Sidebar</h4>
-        <p>You can put any information you'd like.</p>
-        <ul>
-          <li>Latest Posts</li>
-          <li>Announcments</li>
-          <li>Calendar</li>
-          <li>etc</li>
-        </ul>
+
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.media }}
+      <div class="row">
+        <div class="col-md-2 mb-3">
+          <span class="form-input">Title:</span>
+        </div>
+        <div class="col-md-10">
+          {{ form.title }}
+        </div>
+
+
       </div>
-    </div>
+      <div class="row content-input">
+        <div class="col-md-2">
+          <span>Content:</span>
+        </div>
+        <div class="col-md-10 mb-3">
+          {{ form.content }}
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="form-input">Thumbnail Image:</span>
+        </div>
+        <div class="col-md-10">
+          {{ form.thumbnail_image }}
+          <div class="submit-button mt-3">
+            <input class="btn btn-secondary" type="submit" value="Submit">
+          </div>
+        </div>
+
+
+      </div>
+      
+    </form>
+
   </div>
-</div>
+</section>
 {% endblock content %}

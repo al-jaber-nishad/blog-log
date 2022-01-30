@@ -1,12 +1,14 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<img class="d-inline rounded-circle mb-3" src="{{ user.profile.image.url }}" alt="" width="10%">
-<h3 class="name d-inline mt-auto">{{ user.username }}</h3>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ u_form.as_p }}
-  {{ p_form.as_p }}
+<section class="profile-section">
+  <img class="d-inline rounded-circle mb-3" src="{{ user.profile.image.url }}" alt="" width="10%">
+  <h3 class="name d-inline mt-auto">{{ user.username }}</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ u_form.as_p }}
+    {{ p_form.as_p }}
 
-  <input type="submit" value="Submit" class="btn btn-primary btn-block">
-</form>
+    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+  </form>
+</section>
 {% endblock content %}

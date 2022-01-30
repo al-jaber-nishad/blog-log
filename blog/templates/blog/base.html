@@ -31,21 +31,35 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
+          
         </ul>
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item">
             <a href="{% url 'post-create' %}" class="nav-link">New Post</a>
           </li>
           <li class="nav-item">
-            <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
+            <div class="dropdown ml-3">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="nav-image" src="{{ user.profile.image.url }}" alt="">
+              </a>
+            
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="{% url 'logout' %}" class="nav-link">Log Out</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'profile' %}" class="nav-link">Profile</a>
+                </li>
+              </ul>
+            </div>
           </li>
-          <li class="nav-item">
-            <a href="{% url 'profile' %}" class="nav-link">Profile</a>
-          </li>
+          
+          
+          
           {% else %}
           <li class="nav-item">
             <a href="{% url 'login' %}" class="nav-link">Log In</a>
@@ -57,22 +71,32 @@
         </ul>
       </div>
     </div>
+    
   </nav>
   <div class="container main-body">
     {% block content %} {% endblock content %}
   </div>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <section class="footer">
+    <div class="footer-div pt-3 pb-3">
+      <div class="icons">
+        <a href="https://github.com/al-jaber-nishad">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/al-jaber-nishad/">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <div class="footer-text">
+        All rights reserved &copy; Al Jaber Nishad 
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
   <script src="{% static 'js/main.js' %}"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
+  
 </body>
 
 </html>
