@@ -5,7 +5,7 @@
 
 
 body{
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'source sans pro', sans-serif;
 }
 
 /* Navbar Section */
@@ -33,6 +33,30 @@ body{
 
 }
 
+
+/* Side-bar Section */
+
+.side-bar {
+  background-color: white;
+  padding: 45px;
+  border-radius: 3px;
+}
+
+.newsletter{
+  border : 1px solid #DDDDDD;
+  padding: 10px 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.newsletter-submit{
+  padding: 10px 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+
+
 /* Log In page */
 .login-container{
   height: 100vh;
@@ -53,11 +77,19 @@ body{
 }
 
 /* Home Page Post Section */
+
+
+.post-card{
+  
+
+}
+
 .single-post{
   background-color: #fff;
   padding: 20px;
-  margin-top: 15px;
-  border-radius: 10px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  min-height: 90vh;
 }
 .article-image{
   height: 40px;
@@ -66,12 +98,6 @@ body{
   border-radius: 50%;
 }
 
-/* Side-bar Section */
-.side-bar {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
 
 .navbar-toggler:focus{
   outline: 2px dashed #9bddba;
@@ -101,12 +127,15 @@ body{
 .content-input{
   overflow: hidden;
 }
-#id_content{
+
+#id_title{
   width: 100%;
-  max-width: 100%;
-
-
 }
+
+.submit-button input{
+  padding: 8px 40px;
+}
+
 
 /* Profile Page */
 

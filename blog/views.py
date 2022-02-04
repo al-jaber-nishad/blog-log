@@ -5,12 +5,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 # from django.contrib.decorators import decorators
 import datetime
-
+from django.core.paginator import Paginator
 
 def home(request):
-  
+  posts = Post.objects.all()
+  paginator = Paginator(posts, 5)
+
   context = {
-    'posts': Post.objects.all()
+    'posts': posts
   }
   return render(request, 'blog/home.html', context)
 
@@ -20,7 +22,7 @@ class PostListView(ListView):
   model = Post
   template_name = 'blog/home.html'
   context_object_name = 'posts'
-  ordering = ['-date_posted']
+  ordering = ['date_posted']
   paginate_by = 5
 
   def get_queryset(self):

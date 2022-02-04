@@ -1,57 +1,61 @@
 {% extends 'blog/base.html' %} {% block content %}
 <div class="home-content">
-  <div class="row">
-    <div class="col-md-8">
-      {% for post in posts %}
-        <article class="media content-seciton single-post">
-          <img class="article-image" src="{{ post.author.profile.image.url }}" alt="">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a href="" class="mr-2">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <h2><a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content|safe }}</p>
-          </div>
-        </article>
-      {% endfor %}
-      {% if is_paginated %}
-        {% if page_obj.has_previous %}
-          <a class="btn btn-info m-3" href="?page=1">First</a>
-          <a class="btn btn-info m-3" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
 
-        {% for num in page_obj.paginator.page_range %}
-          {% if page_obj.number == num %}
-            <a class="btn btn-info" href="?page={{ num }}">{{ num }}</a>
-          {% elif num > page_obj.number|add:-3 and num < page_obj.number|add:3 %}
-            <a class="btn btn-outline-info" href="?page={{ num }}">{{ num }}</a>
-          {% endif %}
-        {% endfor %}
 
-        
-        {% if page_obj.has_next %}
-          <a class="btn btn-info m-3" href="?page={{ page_obj.next_page_number }}">Next</a>
-          <a class="btn btn-info m-3" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-        {% endif %}
+  {%  for project in posts  %}
+    {% if forloop.counter0|divisibleby:3 %} <div class="row text-center"> {%  endif %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card">
+          <img src="http://placehold.it/300X150" alt="">
+          <div class="card-content">
+            <br>
+            <h4>Project {{ forloop.counter }}</h4>
+            <hr>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.author }}</p>
+            <br>
 
-      {% else %}
-        Not Paginated!
-      {% endif %}
-    </div>
+          </div><!-- card content -->
+        </div><!-- card -->
+      </div><!-- col-md-4 -->
+      {%  if forloop.counter|divisibleby:3 or forloop.last %}</div><hr>{%  endif %}<!-- row closing -->
+  {%  endfor %}
 
-    <div class="col-md-4">
-      <div class="side-bar">
-        <h4>Our Sidebar</h4>
-        <p>You can put any information you'd like.</p>
-        <ul>
-          <li>Latest Posts</li>
-          <li>Announcments</li>
-          <li>Calendar</li>
-          <li>etc</li>
-        </ul>
+  {% for post in posts %}
+  <article class="media content-seciton post-card">
+    <img class="article-image" src="{{ post.author.profile.image.url }}" alt="">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a href="" class="mr-2">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
       </div>
+      <h2><a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a></h2>
+      <p class="article-content">{{ post.content|safe }}</p>
     </div>
-  </div>
+  </article>
+  {% endfor %}
+  {% if is_paginated %}
+  {% if page_obj.has_previous %}
+  <a class="btn btn-info m-3" href="?page=1">First</a>
+  <a class="btn btn-info m-3" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+
+  {% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+  <a class="btn btn-info" href="?page={{ num }}">{{ num }}</a>
+  {% elif num > page_obj.number|add:-3 and num < page_obj.number|add:3 %}
+  <a class="btn btn-outline-info" href="?page={{ num }}">{{ num }}</a>
+  {% endif %}
+  {% endfor %}
+
+
+  {% if page_obj.has_next %}
+  <a class="btn btn-info m-3" href="?page={{ page_obj.next_page_number }}">Next</a>
+  <a class="btn btn-info m-3" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+  {% endif %}
+
+  {% else %}
+  Not Paginated!
+  {% endif %}
 </div>
 {% endblock content %}
