@@ -11,7 +11,7 @@ body{
 /* Navbar Section */
 .navbar {
   background-color: rgb(50, 85, 102);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .navbar .nav-link, .navbar .navbar-brand{
   color: #fff;
@@ -40,6 +40,7 @@ body{
   background-color: white;
   padding: 45px;
   border-radius: 3px;
+  margin: 0 21px;
 }
 
 .newsletter{
@@ -70,6 +71,9 @@ body{
 }
 
 
+.logout-page{
+  text-align: center;
+}
 
 /* Main-body Section */
 body{
@@ -79,9 +83,19 @@ body{
 /* Home Page Post Section */
 
 
-.post-card{
-  
+.card{
+  margin: 0 10px 30px 10px; 
+  height: 390px;
 
+}
+
+div.col-md-4.card{
+  height: 390px;
+ }
+
+ 
+.card-img{
+  max-height: 50px;
 }
 
 .single-post{

@@ -1,27 +1,28 @@
 {% extends 'blog/base.html' %} {% block content %}
-<div class="home-content">
+<div class="home-content mt-3">
 
 
-  {%  for project in posts  %}
-    {% if forloop.counter0|divisibleby:3 %} <div class="row text-center"> {%  endif %}
-      <div class="col-md-6 col-lg-4">
+  {%  for post in posts  %}
+    {% if forloop.counter0|divisibleby:3 %} <div class="row"> {%  endif %}
+      <div class="col-md-4">
         <div class="card">
-          <img src="http://placehold.it/300X150" alt="">
-          <div class="card-content">
-            <br>
-            <h4>Project {{ forloop.counter }}</h4>
-            <hr>
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.author }}</p>
-            <br>
+          <img class="card-img-top" src="https://i0.wp.com/itsfoss.com/wp-content/uploads/2022/02/brave-vs-vivaldi.png?resize=768%2C432&ssl=1" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{ post.title }}</h4>
+            <p>{{ post.author }}</p>
+
+            <div class="card-text">
+              {{ post.content|safe|truncatewords:10 }}
+            </div>
+            <a class="btn btn-success" href="{% url 'post-detail' post.id %}">Read More</a>
 
           </div><!-- card content -->
         </div><!-- card -->
       </div><!-- col-md-4 -->
-      {%  if forloop.counter|divisibleby:3 or forloop.last %}</div><hr>{%  endif %}<!-- row closing -->
-  {%  endfor %}
+      {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}<!-- row closing -->
+  {% endfor %}
 
-  {% for post in posts %}
+  <!-- {% for post in posts %}
   <article class="media content-seciton post-card">
     <img class="article-image" src="{{ post.author.profile.image.url }}" alt="">
     <div class="media-body">
@@ -30,10 +31,11 @@
         <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
       </div>
       <h2><a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a></h2>
-      <p class="article-content">{{ post.content|safe }}</p>
+      <p class="article-content">{{ post.content|safe|slice:400 }}</p>
     </div>
   </article>
-  {% endfor %}
+  {% endfor %} -->
+  
   {% if is_paginated %}
   {% if page_obj.has_previous %}
   <a class="btn btn-info m-3" href="?page=1">First</a>
