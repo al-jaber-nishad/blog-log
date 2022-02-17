@@ -12,7 +12,11 @@
   </div>
   <div class="side-bar-down">
     <h6>Not finding what you're looking for?</h6>
-    <input class="input-box" type="text" placeholder="Search the website here!">
-    <input type="submit" class="submit-button">
+    <form method="GET" action="{% url 'search' %}">
+      {% csrf_token %}
+      <input name="query" class="input-box" type="text" placeholder="Search the website here!">
+
+      <input type="submit" class="submit-button">
+    </form>
   </div>
 </div>

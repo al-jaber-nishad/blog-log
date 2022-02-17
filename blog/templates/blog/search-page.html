@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<section class="search-section">
+  <div class="search-div">
+    <div class="row">
+      <div class="col-md-8">
+        {% for post in posts %}
+        <article class="media content-seciton">
+
+
+          <div class="media-body">
+            <h2 class="article-title">
+              <a href="{% url 'post-detail' post.id %}">
+                {{ post.title }}
+                {{ post }}
+              </a>
+            </h2>
+            <div class="article-metadata">
+              <small class="text-muted">Last updated {{ post.date_posted }} by <a
+                  href="{% url 'author' post.author.id %}" class="mr-2">{{ post.author }}</a></small>
+            </div>
+            <div>
+              <div class="thumbnail_image">
+                <img src="{{ post.thumbnail_image.url }}" alt="" align="left">
+              </div>
+              <div class="">
+                <p class="article-content">{{ post.content|safe|truncatewords:20 }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {% endfor %}
+      </div>
+      <div class="col-md-4">
+        {% include 'blog/sidebar.html' %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

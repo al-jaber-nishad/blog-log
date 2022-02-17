@@ -30,6 +30,24 @@ def Author(request, pk):
 
   return render(request, 'blog/author.html', context)
   
+
+def Search(request):
+  if request.method == "GET":
+    query = request.GET.get('query', 'nothing')
+
+    if query:
+      posts = Post.objects.filter(content__icontains=query)
+    else:
+      posts = {'ddd'}
+
+  context = {
+    'posts': posts,
+  }
+
+  return render(request, 'blog/search-page.html', context)
+
+
+
 class PostListView(ListView):
   model = Post
   template_name = 'blog/home.html'
