@@ -1,42 +1,28 @@
 {% extends 'blog/base.html' %} {% block content %}
 <div class="home-content mt-3">
 
-
-  {%  for post in posts  %}
-    {% if forloop.counter0|divisibleby:3 %} <div class="row"> {%  endif %}
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="https://i0.wp.com/itsfoss.com/wp-content/uploads/2022/02/brave-vs-vivaldi.png?resize=768%2C432&ssl=1" alt="">
+    {% for post in posts %}
+        {% if forloop.first %}<div class="row">{% endif %}
+        <div class="col-lg-4">
+          <div class="card">
+          <img src="https://i0.wp.com/itsfoss.com/wp-content/uploads/2022/02/brave-vs-vivaldi.png" alt="" class="card-img-top">
+          <!-- {{ post.thumbnail_image.url }} -->
           <div class="card-body">
-            <h4 class="card-title">{{ post.title }}</h4>
-            <p>{{ post.author }}</p>
+            <a class="card-title text-info" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+            
+          </div>
 
-            <div class="card-text">
-              {{ post.content|safe|truncatewords:10 }}
-            </div>
-            <a class="btn btn-success" href="{% url 'post-detail' post.id %}">Read More</a>
+        </div>
 
-          </div><!-- card content -->
-        </div><!-- card -->
-      </div><!-- col-md-4 -->
-      {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}<!-- row closing -->
-  {% endfor %}
-
-  <!-- {% for post in posts %}
-  <article class="media content-seciton post-card">
-    <img class="article-image" src="{{ post.author.profile.image.url }}" alt="">
-    <div class="media-body">
-      <div class="article-metadata">
-        <a href="" class="mr-2">{{ post.author }}</a>
-        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-      </div>
-      <h2><a href="{% url 'post-detail' post.id %}" class="article-title">{{ post.title }}</a></h2>
-      <p class="article-content">{{ post.content|safe|slice:400 }}</p>
-    </div>
-  </article>
-  {% endfor %} -->
+          <span class="text-center">{{ product.name }}</span>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}</div>
+        <div class="row">{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+    {% endfor %}
   
-  {% if is_paginated %}
+  
+  <!-- {% if is_paginated %}
   {% if page_obj.has_previous %}
   <a class="btn btn-info m-3" href="?page=1">First</a>
   <a class="btn btn-info m-3" href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -58,6 +44,6 @@
 
   {% else %}
   Not Paginated!
-  {% endif %}
+  {% endif %} -->
 </div>
 {% endblock content %}
