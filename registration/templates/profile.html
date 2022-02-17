@@ -1,15 +1,55 @@
-{% extends 'blog/base.html' %}
+{% extends "blog/base.html" %}
 {% block content %}
+{% load static %}
 <section class="profile-section">
-  <img class="d-inline rounded-circle mb-3" src="{{ user.profile.image.url }}" alt="" width="10%">
-  <h3 class="name d-inline mt-auto">{{ user.username }}</h3>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ u_form.as_p }}
-    {{ p_form.as_p }}
+  <div class="profile-page">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="profile-pic">
+          <img src="{{ user.profile.image.url }}" alt="" align="left">
+          <h3 class="name d-inline mt-auto">{{ user.username|capfirst }}</h3>
+        </div>
+        <br>
+        <div class="profile-form">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ p_form.as_p }}
+            {{ p_form.user }}
+  
+            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+          </form>
+        </div>
 
-    <input type="submit" value="Submit" class="btn btn-primary btn-block">
-  </form>
+        {% for post in posts %}
+        <article class="media content-seciton mt-5">
+          <div class="media-body">
+            <h2 class="article-title">
+              <a href="{% url 'post-detail' post.id %}">
+                {{ post.title }}
+              </a>
+            </h2>
+            <div class="article-metadata">
+              <small class="text-muted">Last updated {{ post.date_posted }} by <a
+                  href="{% url 'author' post.author.id %}" class="mr-2">{{ post.author }}</a></small>
+            </div>
+            <div>
+              <div class="thumbnail_image">
+                <img src="{{ post.thumbnail_image.url }}" alt="" align="left">
+              </div>
+              <div class="">
+                <p class="article-content">{{ post.content|safe|truncatewords:20 }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
 
+        {% endfor %}
+
+      </div>
+      <div class="col-md-4">
+        {% include "blog/sidebar.html" %}
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock content %}
