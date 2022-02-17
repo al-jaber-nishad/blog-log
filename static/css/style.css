@@ -11,11 +11,12 @@ body{
 
 /* Navbar Section */
 .navbar {
-  background-color: rgb(50, 85, 102);
+  background-color: rgb(255, 255, 255);
   margin-bottom: 20px;
+  border-bottom: 1px solid black;
 }
 .navbar .nav-link, .navbar .navbar-brand{
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 .navbar-nav{
   text-align: center;
@@ -146,6 +147,10 @@ div.col-md-4.card{
   min-height: 70vh;
 }
 
+.article-title a{
+  text-decoration: none;
+}
+
 .article-image{
   height: 40px;
   width: 40px;
@@ -172,6 +177,20 @@ div.col-md-4.card{
 
 .navbar-toggler:focus{
   outline: 2px dashed #9bddba;
+}
+
+/* Author Page */
+
+.posts-div h3{
+  margin: 40px 0;
+}
+
+.author-detail{
+  font-size: 1rem;
+}
+
+.thumbnail_image img{
+  margin-right: 20px;
 }
 
 /* Registration Page */

@@ -9,7 +9,7 @@
           <h2 class="article-title">{{ object.title }}</h2>
 
           <div class="article-metadata">
-            <small class="text-muted">Last updated {{ object.date_posted }} by <a href="" class="mr-2">{{ object.author }}</a></small>
+            <small class="text-muted">Last updated {{ object.date_posted }} by <a href="{% url 'author' post.author.id %}" class="mr-2">{{ object.author }}</a></small>
             {% if post.author.id == user.id %}
               <div>
                 <a class="btn btn-outline-danger mt-1 mb-3" href="{% url 'post-delete' object.id %}">Delete</a>

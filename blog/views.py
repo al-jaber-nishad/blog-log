@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from registration.models import Profile
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -17,6 +18,17 @@ def home(request):
   return render(request, 'blog/home.html', context)
 
 
+def Author(request, pk):
+  posts = Post.objects.filter(author_id=pk)
+
+  author = Profile.objects.get(user=pk)
+
+  context = {
+    'posts': posts,
+    'author': author,
+  }
+
+  return render(request, 'blog/author.html', context)
   
 class PostListView(ListView):
   model = Post
@@ -64,4 +76,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     if self.request.user == post.author:
       return True
     return False
-
