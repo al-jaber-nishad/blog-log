@@ -7,13 +7,14 @@
 body{
   font-family: 'source sans pro', sans-serif;
   font-size: 0.85rem;
+  margin-top: 6rem;
 }
 
 /* Navbar Section */
 .navbar {
   background-color: rgb(255, 255, 255);
-  margin-bottom: 20px;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  box-shadow: 0 5px 30px #F5F5F5;
 }
 .navbar .nav-link, .navbar .navbar-brand{
   color: rgb(0, 0, 0);
@@ -21,13 +22,20 @@ body{
 .navbar-nav{
   text-align: center;
 }
-.navbar-brand .brand-logo{
-  font-family: 'Quintessential', cursive;
-  font-size: 2.3rem;
-  line-height: 46px;
-  font-weight: 600;
-  letter-spacing: 0.065em;
+
+.custom-nav{
+  padding: 10px 0;
 }
+
+.navbar-brand .brand-logo {
+  font-family: 'source sans pro', sans-serif;
+  font-size: 1.3rem;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  color: #2c2c2c;
+}
+
 .nav-image{
   border-radius: 50%;
   width: 3rem;
@@ -141,7 +149,8 @@ div.col-md-4.card{
 
 .single-post{
   background-color: #fff;
-  padding: 20px;
+  padding: 0 20px;
+
   margin-bottom: 15px;
   border-radius: 3px;
   min-height: 70vh;
@@ -182,7 +191,7 @@ div.col-md-4.card{
 /* Author Page */
 
 .posts-div h3{
-  margin: 40px 0;
+  margin: 20px 0 40px 0;
 }
 
 .author-detail{
@@ -204,6 +213,7 @@ div.col-md-4.card{
   background-color: white;
   min-height: 80vh;
   padding: 3rem;
+  padding-top: 0;
   margin: 0.5rem 0 2rem 0;
   border-radius: 0.8rem;
 }
@@ -234,10 +244,7 @@ div.col-md-4.card{
 }
 
 .profile-pic img{
-  height: 90px;
-  width: 90px;
-  border-radius: 50%;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
 }
 /* Footer Section */
 
