@@ -46,9 +46,6 @@ body{
 
 /* Side-bar Section */
 
-.side-bar {
-}
-
 .side-bar-up{
   background-color: #F5F5F5;
   padding: 35px 30px;
@@ -106,9 +103,6 @@ body{
 }
 
 /* Main-body Section */
-body{
-  /* background-color: rgb(246, 246, 246); */
-}
 
 /* Home Page Post Section */
 
