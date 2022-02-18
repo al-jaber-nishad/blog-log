@@ -9,8 +9,8 @@ lxml==4.5.0
 numpy==1.17.4
 pandas==0.25.3
 Pillow==7.0.0
-pytz==2019.3
-requests==2.22.0
+pytz==2021.3
+requests==2.26.0
 six==1.14.0
 soupsieve==1.9.5
 sqlparse==0.4.2
@@ -18,3 +18,4 @@ timezonefinder==5.2.0
 urllib3==1.25.8
 webencodings==0.5.1
 whitenoise==5.3.0
+
