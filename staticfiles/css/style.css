@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+
+body{
+  font-family: 'source sans pro', sans-serif;
+  font-size: 0.85rem;
+  margin-top: 6rem;
+}
+
+/* Navbar Section */
+.navbar {
+  background-color: rgb(255, 255, 255);
+  /* border-bottom: 1px solid black; */
+  box-shadow: 0 5px 30px #F5F5F5;
+}
+.navbar .nav-link, .navbar .navbar-brand{
+  color: rgb(0, 0, 0);
+}
+.navbar-nav{
+  text-align: center;
+}
+
+.custom-nav{
+  padding: 10px 0;
+}
+
+.navbar-brand .brand-logo {
+  font-family: 'source sans pro', sans-serif;
+  font-size: 1.3rem;
+  line-height: 46px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  color: #2c2c2c;
+}
+
+.nav-image{
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+
+}
+
+
+/* Side-bar Section */
+
+.side-bar {
+}
+
+.side-bar-up{
+  background-color: #F5F5F5;
+  padding: 35px 30px;
+  border-radius: 3px;
+  /* margin: 0 21px; */
+}
+
+.side-bar-down{
+  margin-top: 1.5rem;
+}
+
+.side-bar .h6{
+  font-weight: 600;
+}
+
+.input-box{
+  border : 1px solid #DDDDDD;
+  padding: 10px 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.submit-button{
+  padding: 10px 15px;
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  background-color: black;
+}
+
+.submit-button:hover{
+  color: rgba(0, 0, 0, 0.787);
+  background-color: #9bddba;
+}
+
+
+/* Log In page */
+.login-container{
+  height: 100vh;
+  width: 100%;
+}
+.login-form{
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 10px 1px 15px rgb(231, 231, 231);
+  background-color: #fff;
+}
+
+
+.logout-page{
+  text-align: center;
+}
+
+/* Main-body Section */
+body{
+  /* background-color: rgb(246, 246, 246); */
+}
+
+/* Home Page Post Section */
+
+
+.card{
+  margin: 0 10px 30px 10px; 
+  height: 390px;
+  box-shadow: 0px 1px 30px #a1a1a1
+}
+
+.card-body a{
+  color: info;
+  text-decoration: none;
+}
+
+.card-body a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+.card .card-title{
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.card .card-text{
+  margin-bottom: 10px;
+}
+
+div.col-md-4.card{
+  height: 390px;
+ }
+
+ 
+.card-img{
+  max-height: 50px;
+}
+
+.single-post{
+  background-color: #fff;
+  padding: 0 20px;
+
+  margin-bottom: 15px;
+  border-radius: 3px;
+  min-height: 70vh;
+}
+
+.article-title a{
+  text-decoration: none;
+}
+
+.article-image{
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.article-footer{
+  background-color: #F5F5F5;
+  padding: 30px;
+  border-radius: 5px;
+
+}
+
+.article-footer .article-image{
+  text-align: center;
+  height: 90px;
+  width: 90px;
+}
+
+.article-footer .author-name h5{
+  font-weight: 600;
+}
+
+.navbar-toggler:focus{
+  outline: 2px dashed #9bddba;
+}
+
+/* Author Page */
+
+.posts-div h3{
+  margin: 20px 0 40px 0;
+}
+
+.author-detail{
+  font-size: 1rem;
+}
+
+.thumbnail_image img{
+  margin-right: 20px;
+}
+
+/* Registration Page */
+/* .form-div{ 
+  max-width: 40%;
+}  */
+
+
+/* Post Form Page */
+.post-form{
+  background-color: white;
+  min-height: 80vh;
+  padding: 3rem;
+  padding-top: 0;
+  margin: 0.5rem 0 2rem 0;
+  border-radius: 0.8rem;
+}
+
+.post-form-title{
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: Merriweather;
+}
+
+.content-input{
+  overflow: hidden;
+}
+
+#id_title{
+  width: 100%;
+}
+
+.submit-button input{
+  padding: 8px 40px;
+}
+
+
+/* Profile Page */
+
+.profile-section{
+  min-height: 90vh;
+}
+
+.profile-pic img{
+  margin: 0 20px 20px 0;
+}
+/* Footer Section */
+
+.footer .footer-div{
+  margin-top: 3rem;
+  text-align: center;
+  background-color: currentColor;
+}
+
+.footer .footer-text {
+  color: white;
+  font-size: 21px;
+  font-weight: 500;
+}
+.footer .icons {
+  font-size: 31px;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+.footer .icons a{  
+  color: aqua;
+}
+ 

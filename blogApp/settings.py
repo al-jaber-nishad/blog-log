@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ro9w4yp8*44tbubr0zmq5diilpi(p7j+h((2ae8_y99te+%e5o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jaber-blog-log.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'blog',
     'registration.apps.RegistrationConfig',
     'ckeditor',
-
 ]
 
 MIDDLEWARE = [
