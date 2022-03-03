@@ -1,25 +1,21 @@
 {% extends 'blog/base.html' %} {% block content %}
 <div class="home-content mt-3">
 
-    {% for post in posts %}
-        {% if forloop.first %}<div class="row">{% endif %}
-        <div class="col-lg-4">
-          <div class="card">
-          <img src="https://i0.wp.com/itsfoss.com/wp-content/uploads/2022/02/brave-vs-vivaldi.png" alt="" class="card-img-top">
-          <!-- {{ post.thumbnail_image.url }} -->
-          <div class="card-body">
-            <a class="card-title text-info" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
-            
-          </div>
-
+  {% for post in posts %}
+  {% if forloop.first %}<div class="row">{% endif %}
+    <div class="col-lg-4 col-md-12">
+      <div class="card">
+        <img src="{{ post.thumbnail_image.url }}" alt="" class="card-img-top">
+        <!-- {{ post.thumbnail_image.url }} -->
+        <div class="card-body">
+          <a class="card-title text-info" href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
         </div>
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}</div>
+    <div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+  {% endfor %}
 
-          <span class="text-center">{{ product.name }}</span>
-        </div>
-        {% if forloop.counter|divisibleby:3 %}</div>
-        <div class="row">{% endif %}
-        {% if forloop.last %}</div>{% endif %}
-    {% endfor %}
-  
 </div>
 {% endblock content %}

@@ -21,7 +21,7 @@ def register(request):
   return render(request, 'register.html', {'form':form})
 
 @login_required
-def profile(request, pk):
+def edit_profile(request, pk):
   if request.method == 'POST':
     # u_form = UserUpdateForm(request.POST, instance=request.user)
     p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -34,6 +34,7 @@ def profile(request, pk):
       return redirect('profile')
       
   else:
+    # if pk:
     posts = Post.objects.filter(author_id=pk)
     p_form = ProfileUpdateForm(instance=request.user.profile)
     
@@ -42,4 +43,15 @@ def profile(request, pk):
     'posts': posts,
 
   }
+  return render(request, 'profile.html', context)
+
+
+@login_required()
+def profile(request):
+  p_form = ProfileUpdateForm(instance=request.user.profile)
+
+  context = {
+    'p_form': p_form
+  }
+
   return render(request, 'profile.html', context)

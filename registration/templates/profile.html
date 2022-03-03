@@ -10,40 +10,38 @@
           <h3 class="name d-inline mt-auto">{{ user.username|capfirst }}</h3>
         </div>
         <br>
-        <div class="profile-form">
+        <div class="profile-form mb-5">
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ p_form.as_p }}
             {{ p_form.user }}
-  
+
             <input type="submit" value="Submit" class="btn btn-primary btn-block">
           </form>
         </div>
 
+        <h2 class="mb-3">Your Blogs:</h2>
         {% for post in posts %}
-        <article class="media content-seciton mt-5">
+        <article class="media content-seciton mb-3">
           <div class="media-body">
-            <h2 class="article-title">
-              <a href="{% url 'post-detail' post.id %}">
-                {{ post.title }}
-              </a>
-            </h2>
-            <div class="article-metadata">
-              <small class="text-muted">Last updated {{ post.date_posted }} by <a
-                  href="{% url 'author' post.author.id %}" class="mr-2">{{ post.author }}</a></small>
+            <div class="thumbnail_image">
+              <img src="{{ post.thumbnail_image.url }}" alt="" align="left">
             </div>
-            <div>
-              <div class="thumbnail_image">
-                <img src="{{ post.thumbnail_image.url }}" alt="" align="left">
-              </div>
-              <div class="">
-                <p class="article-content">{{ post.content|safe|truncatewords:20 }}</p>
+            <div class="">
+              <h2 class="article-title">
+                <a href="{% url 'post-detail' post.id %}">
+                  {{ post.title }}
+                </a>
+              </h2>
+              <div class="article-metadata">
+                <small class="text-muted">Last updated {{ post.date_posted }}</small>
               </div>
             </div>
           </div>
         </article>
-
         {% endfor %}
+
+
 
       </div>
       <div class="col-md-4">

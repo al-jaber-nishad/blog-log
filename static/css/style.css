@@ -7,7 +7,7 @@
 body{
   font-family: 'source sans pro', sans-serif;
   font-size: 0.85rem;
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
 }
 
 /* Navbar Section */
@@ -103,14 +103,17 @@ body{
 }
 
 /* Main-body Section */
-
+.main-body{
+  margin-top: 6rem;
+}
 /* Home Page Post Section */
 
 
 .card{
   margin: 0 10px 30px 10px; 
   height: 390px;
-  box-shadow: 0px 1px 30px #a1a1a1
+  box-shadow: 0px 1px 30px #a1a1a1;
+  overflow: hidden;
 }
 
 .card-body a{
@@ -144,10 +147,14 @@ div.col-md-4.card{
 .single-post{
   background-color: #fff;
   padding: 0 20px;
-
+  overflow: hidden;
   margin-bottom: 15px;
   border-radius: 3px;
   min-height: 70vh;
+}
+
+.article-title{
+  font-size: 1.5rem;
 }
 
 .article-title a{

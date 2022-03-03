@@ -2,11 +2,9 @@
 <div class="detail-post mt-3">
   <div class="row">
     <div class="col-md-8">
-      <article class="media content-seciton single-post">
-        
-        <div class="media-body">
-
-          <h2 class="article-title">{{ object.title }}</h2>
+      <article class="content-seciton single-post">
+        <div class="media-body overflow-scroll">
+          <span class="article-title">{{ object.title }}</span>
 
           <div class="article-metadata">
             <small class="text-muted">Last updated {{ object.date_posted }} by <a href="{% url 'author' post.author.id %}" class="mr-2">{{ object.author }}</a></small>
@@ -18,7 +16,6 @@
             {% endif %}
           </div>
           
-          
           <p class="article-content">{{ post.content|safe }}</p>
         </div>
       </article>
@@ -27,7 +24,10 @@
       <div class="article-footer">
         <img class="rounded-circle article-image" src="{{ object.author.profile.image.url }}" alt="" align="left">
         <div class="author-name">
-          <h5>{{ object.author|capfirst }}</h5>
+          <h5>
+            <a href="{% url 'author' post.author.id %}">{{ object.author|capfirst }}
+            </a>
+          </h5>
         </div>
         <div class="author-detail">
           {{ object.author.profile.bio }}
